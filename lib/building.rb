@@ -23,7 +23,17 @@ class Building
     @units.map do |unit|
       average_rent += unit.monthly_rent
     end
-    average_rent.to_f/@units.count 
+    average_rent.to_f/@units.count
+  end
+
+  def rented_units
+    rented_units = []
+    @units.each do |unit|
+      if unit.renter != nil
+        rented_units << unit
+      end
+    end
+    rented_units
   end
 
 end
