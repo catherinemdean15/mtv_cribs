@@ -16,5 +16,9 @@ class ApartmentTest < Minitest::Test
   def test_it_exists
     assert_instance_of Apartment, @unit1
   end
+
+  def test_it_calls_number
+    assert_equal "A1", @unit1.number
+  end
   
 end
