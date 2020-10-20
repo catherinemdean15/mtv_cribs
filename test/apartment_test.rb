@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/renter'
-require './lib/apartment.rb'
+require './lib/apartment'
 
 class ApartmentTest < Minitest::Test
 
@@ -40,6 +40,6 @@ class ApartmentTest < Minitest::Test
   def test_it_calls_renter_when_renter
     @unit1.add_renter(@renter1)
     assert_equal @renter1, @unit1.renter
-  end 
+  end
 
 end
