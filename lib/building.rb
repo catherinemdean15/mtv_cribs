@@ -49,10 +49,15 @@ class Building
   end
 
   def units_by_number_of_bedrooms
-    units_by_bedroom = Hash.new
+    units_by_bedroom = {
+            3 => [],
+            2 => [],
+            1 => [],
+    }
     @units.each do |unit|
-      units_by_bedroom[unit.bedroom] = unit.number
-    end  
+      units_by_bedroom[unit.bedrooms] << unit.number
+    end
+    units_by_bedroom
   end
 
 end

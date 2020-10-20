@@ -94,5 +94,19 @@ class BuildingTest < Minitest::Test
     @unit3.add_renter(renter3)
 
     assert_equal renter2, @building.renter_with_highest_rent
-  end 
+  end
+
+  def test_units_by_number_of_bedrooms
+    @building.add_unit(@unit1)
+    @building.add_unit(@unit2)
+    @building.add_unit(@unit3)
+    @building.add_unit(@unit4)
+    hash = {
+            3 => ["D4"],
+            2 => ["B2", "C3"],
+            1 => ["A1"], 
+    }
+    assert_equal hash, @building.units_by_number_of_bedrooms
+  end
+
 end
