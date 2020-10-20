@@ -18,6 +18,12 @@ class Building
     all_renters
   end
 
-
+  def average_rent
+    average_rent = 0
+    @units.map do |unit|
+      average_rent += unit.monthly_rent
+    end
+    average_rent.to_f/@units.count 
+  end
 
 end
