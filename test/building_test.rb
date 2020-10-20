@@ -137,11 +137,11 @@ class BuildingTest < Minitest::Test
     renter2 = Renter.new("Jessie")
     @unit1.add_renter(renter2)
     hash = {
-           renter2 => {bathrooms: 1,
-                       bedrooms: 1
+           renter2 => {bathrooms: @unit1.bathrooms,
+                       bedrooms: @unit1.bedrooms
            },
-           renter1 => {bathrooms: 2,
-                       bedrooms: 1,
+           renter1 => {bathrooms: @unit2.bathrooms,
+                       bedrooms: @unit2.bedrooms,
            }
     }
     assert_equal hash, @building.rooms_by_renter
