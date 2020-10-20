@@ -104,9 +104,29 @@ class BuildingTest < Minitest::Test
     hash = {
             3 => ["D4"],
             2 => ["B2", "C3"],
-            1 => ["A1"], 
+            1 => ["A1"],
     }
     assert_equal hash, @building.units_by_number_of_bedrooms
   end
+
+  def test_annual_breakdown
+    renter1 = Renter.new("Spencer")
+    @building.add_unit(@unit1)
+    @building.add_unit(@unit2)
+    @building.add_unit(@unit3)
+    @unit2.add_renter(renter1)
+    hash = {
+            "Spencer" => 11988
+    }
+    assert_equal hash, @building.annual_breakdown
+
+    renter2 = Renter.new("Jessie")
+    @unit1.add_renter(renter2)
+    hash2 = {
+            "Spencer" => 11988,
+            "Jessie" => 14400
+    }
+  end
+
 
 end
