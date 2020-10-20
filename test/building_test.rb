@@ -128,5 +128,22 @@ class BuildingTest < Minitest::Test
     }
   end
 
-
+  def test_rooms_by_renter
+    renter1 = Renter.new("Spencer")
+    @building.add_unit(@unit1)
+    @building.add_unit(@unit2)
+    @building.add_unit(@unit3)
+    @unit2.add_renter(renter1)
+    renter2 = Renter.new("Jessie")
+    @unit1.add_renter(renter2)
+    hash = {
+           renter2 => {bathrooms: 1,
+                       bedrooms: 1
+           },
+           renter1 => {bathrooms: 2,
+                       bedrooms: 1,
+           }
+    }
+    assert_equal hash, @building.rooms_by_renter
+  end
 end
