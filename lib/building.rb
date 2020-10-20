@@ -13,7 +13,7 @@ class Building
   def renters
     all_renters = []
     @units.map do |unit|
-      all_renters << unit.renter
+      all_renters << unit.renter.name
     end
     all_renters
   end
